@@ -8,6 +8,6 @@ package study.chapter05;
  */
 public class Test05 {
     public static void main(String[] args) {
-        System.out.println("asasasasaasasasa");
+        System.out.println("github");
     }
 }
