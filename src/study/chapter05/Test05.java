@@ -9,6 +9,7 @@ import java.util.concurrent.FutureTask;
  * @data 2020/4/25 17:51
  */
 public class Test05 {
+    public static boolean flag=true;
     public static void main(String[] args) throws Exception {
         /* 启动线程
          * 启动顺序不可控
@@ -54,6 +55,70 @@ public class Test05 {
          * public boolean isInterrupted()
          * 2中断线程执行
          * public void interrupt()
+         *
+         * 线程的强制执行
+         * public final void join() throws InterruptedException
+         *
+         * 线程的礼让
+         * public static native void yield();
+         *
+         * 线程优先级相关
+         * 1 设置线程优先级
+         * public final void setPriority(int newPriority)
+         * 2 取得优先级
+         * public final int getPriority()
+         * 3 线程最高优先级
+         * public final static int MAX_PRIORITY = 10;
+         * 4 线程最低优先级
+         * public final static int MIN_PRIORITY = 1;
+         * 5线程默认优先级（主线程优先级为5）
+         * public final static int NORM_PRIORITY = 5;
+         *
+         * 线程的同步
+         * 使用 synchronized 关键字 注明操作只能单个线程操作 实现安全同步
+         * 1一般要进行同步对象处理可以通过当前对象 this 进行同步
+         * 2利用同步方法解决，在方法定义上使用 synchronized 关键字
+         * 同步会造成性能损失
+         *
+         * 线程死锁问题 若干线程面对统一资源互相等待且无法进行解决的情况
+         * 过多的同步操作将导致死锁问题出现
+         *
+         * 解决生产者与消费者的问题可以通过等待与唤醒机制
+         * 1 等待机制
+         * 未设置等待时间即一直为等待状态
+         * public final void wait() throws InterruptedException
+         * 设置了等待时间
+         * public final void wait(long timeout, int nanos) throws InterruptedException
+         * 2 唤醒机制
+         * 唤醒第一个等待线程
+         * public final native void notify();
+         * 唤醒全部等待线程
+         * public final native void notifyAll();
+         *
+         * 守护线程方法
+         * 设置为守护线程
+         *  public final void setDaemon(boolean on)
+         * 判断对象是否为守护线程
+         *  public final boolean isDaemon()
+         * 守护线程依赖用户线程，当程序执行完毕，守护线程就消失
+         * JVM中最大的守护线程就是GC处理
+         * 程序执行中 GC一直存在，程序执行完毕，GC结束
+         *
+         *
+         * volatile主要用于修饰属性  表示直接操作
+         * 一般变量处理的步骤
+         * 1 获取变量原有的数值内容副本
+         * 2 利用副本为变量进行数学计算
+         * 3 取计算后的结果保存到原始变量内存空间中
+         *
+         * 被volatile修饰的变量的处理步骤
+         * 直接拿变量进行操作，节约了拷贝读出与内存写入的消耗
+         *
+         * volatile 与 synchronized 的区别？
+         * volatile 主要在属性上使用，而 synchronized 主要在代码块与方法上使用
+         * volatile 无法描述同步处理，只是声明对属性内存的直接处理，而synchronized用于同步
+         *
+         *
          *
          * */
 
@@ -116,6 +181,16 @@ public class Test05 {
         if (!interruptThread.isInterrupted()) {
             interruptThread.interrupt();
         }
+        /*测试线程停止*/
+
+        new Thread(()->{
+            long num=0;
+            while (flag){
+                System.out.println(Thread.currentThread().getName()+"num="+num++);
+            }
+        },"执行线程").start();
+        Thread.sleep(10);
+        flag=false;
 
     }
 }
