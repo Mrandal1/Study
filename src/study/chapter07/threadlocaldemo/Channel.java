@@ -21,4 +21,8 @@ public class Channel {
         System.out.println(Thread.currentThread().getName() + "发送" +THREADLOCAL.get().getInfo());
     }
 
+    public void remove(){
+        THREADLOCAL.remove();
+    }
+
 }
