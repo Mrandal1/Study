@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<books>
+    <book sn="SN1234567">
+        <name>JAVA</name>
+        <price>9.9</price>
+        <author>JACK</author>
+    </book>
+    <book sn="SN1234568">
+        <name>C++</name>
+        <price>19.9</price>
+        <author>TOM</author>
+    </book>
+</books>
