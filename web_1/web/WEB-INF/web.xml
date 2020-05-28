@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--上下文对象 唯一属于本web工程-->
+    <context-param>
+        <param-name>con</param-name>
+        <param-value>con-v</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>name</param-value>
+    </context-param>
+
+
+
+
+
+
+
+
+
+    <!-- 配置servlet程序 -->
+    <servlet>
+        <!--给servlet程序起一个别名(一般为类名)-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--servlet程序的全类名-->
+        <servlet-class>com.randal.HelloServlet</servlet-class>
+        <!--初始化参数设置-->
+        <init-param>
+            <param-name>myKey</param-name>
+            <param-value>myValue</param-value>
+        </init-param>
+    </servlet>
+    <!--为servlet配置映射访问地址-->
+    <servlet-mapping>
+        <!--映射对应的servlet程序-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--映射的地址  http://localhost:8080/web_1/HelloWorld -->
+        <url-pattern>/HelloWorld</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>com.randal.HelloServlet2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <!--映射对应的servlet程序-->
+        <servlet-name>HelloServlet2</servlet-name>
+        <!--映射的地址  http://localhost:8080/web_1/HelloWorld2 -->
+        <url-pattern>/HelloWorld2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ParamServlet</servlet-name>
+        <servlet-class>com.randal.ParamServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParamServlet</servlet-name>
+        <url-pattern>/ParamServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
