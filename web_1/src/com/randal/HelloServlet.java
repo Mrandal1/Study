@@ -2,6 +2,7 @@ package com.randal;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -51,16 +52,29 @@ public class HelloServlet implements Servlet {
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        //获取context
-        ServletContext context = getServletConfig().getServletContext();
-        System.out.println(context.getInitParameter("username"));
-        System.out.println(context.getContextPath());
-        //获取真实路径
-        System.out.println(context.getRealPath("/"));
-        System.out.println("POST".equals(request.getMethod()) ? "3 POST service被访问了！" : "3 GET service被访问了！");
-        //设置attr
-        context.setAttribute("key", "value");
-        System.out.println(context.getAttribute("key"));
+        HttpServletResponse response=(HttpServletResponse)servletResponse;
+//        //获取context
+//        ServletContext context = getServletConfig().getServletContext();
+//        System.out.println(context.getInitParameter("username"));
+//        System.out.println(context.getContextPath());
+//        //获取真实路径
+//        System.out.println(context.getRealPath("/"));
+//        System.out.println("POST".equals(request.getMethod()) ? "3 POST service被访问了！" : "3 GET service被访问了！");
+//        //设置attr
+//        context.setAttribute("key", "value");
+//        System.out.println(context.getAttribute("key"));
+
+
+//        //请求重定向
+//        //1 设置302状态码
+//        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+//        httpServletResponse.setStatus(302);
+//        //2 设置重定向地址
+////        httpServletResponse.setHeader("Location","http://localhost:8080/web_1/HelloServlet2");
+//        httpServletResponse.setHeader("Location","https://www.baidu.com/");
+
+        //直接设置重定向
+        response.sendRedirect("https://www.baidu.com");
     }
     //抽象出doGet或doPost方法
 

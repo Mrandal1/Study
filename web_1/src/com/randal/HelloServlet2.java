@@ -16,7 +16,7 @@ public class HelloServlet2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取请求资源路径
-        System.out.println(req.getRequestURI());
+        req.getRequestURI();
         //获取请求的统一资源定位符
         req.getRequestURL();
         //获取客户端地址
@@ -31,7 +31,33 @@ public class HelloServlet2 extends HttpServlet {
         req.getAttribute("");
         //获取请求转发对象
         req.getRequestDispatcher("");
-        System.out.println("3 GET service被访问了！");
+
+
+        //获取转发自ParamServlet的请求参数
+        System.out.println("------HelloServlet2------");
+        System.out.println("2" + req.getParameter("username"));
+        System.out.println("2" + req.getParameter("password"));
+        System.out.println("2性别" + req.getParameter("Sex"));
+
+        //查看转发的attr
+
+        Object key = req.getAttribute("key_name");
+        System.out.println("来自ParamServlet的attr" + key);
+        //使用参数
+        System.out.println("key_value" + key + "处理HelloServlet2的业务");
+
+        //response 默认编码为 ISO-8859-1
+
+//        //用于设置浏览器解析的响应头
+//        resp.setHeader("Content-type", "text/html;charset=UTF-8");
+//        //用于设置服务器响应的编码
+//        resp.setCharacterEncoding("UTF-8");
+
+        // 直接设置编码 服务器与客户端都使用UTF-8编码 （需要在取得输出流之前设置）
+        resp.setContentType("text/html;charset=UTF-8");
+
+        resp.getWriter().write("成功收到！\t" + req.getParameter("username"));
+
     }
 
     @Override

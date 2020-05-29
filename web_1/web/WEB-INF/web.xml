@@ -38,7 +38,7 @@
         <!--映射对应的servlet程序-->
         <servlet-name>HelloServlet</servlet-name>
         <!--映射的地址  http://localhost:8080/web_1/HelloWorld -->
-        <url-pattern>/HelloWorld</url-pattern>
+        <url-pattern>/HelloServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -49,8 +49,8 @@
     <servlet-mapping>
         <!--映射对应的servlet程序-->
         <servlet-name>HelloServlet2</servlet-name>
-        <!--映射的地址  http://localhost:8080/web_1/HelloWorld2 -->
-        <url-pattern>/HelloWorld2</url-pattern>
+        <!--映射的地址  http://localhost:8080/web_1/HelloServlet2 -->
+        <url-pattern>/HelloServlet2</url-pattern>
     </servlet-mapping>
 
     <servlet>
