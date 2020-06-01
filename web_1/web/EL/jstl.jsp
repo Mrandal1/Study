@@ -73,6 +73,7 @@ item表示一个遍历的数据源(集合)
 --%>
 <%
     request.setAttribute("arr", new String[]{"ob1", "ob2", "ob3"});
+
 %>
 <c:forEach items="${requestScope.arr}" var="ob">
     ${ob} <br>

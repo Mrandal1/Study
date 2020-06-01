@@ -14,13 +14,6 @@
     </context-param>
 
 
-
-
-
-
-
-
-
     <!-- 配置servlet程序 -->
     <servlet>
         <!--给servlet程序起一个别名(一般为类名)-->
@@ -60,5 +53,21 @@
     <servlet-mapping>
         <servlet-name>ParamServlet</servlet-name>
         <url-pattern>/ParamServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpLoadServlet</servlet-name>
+        <servlet-class>com.randal.UpLoadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpLoadServlet</servlet-name>
+        <url-pattern>/upLoadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DownLoadServlet</servlet-name>
+        <servlet-class>com.randal.DownLoadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownLoadServlet</servlet-name>
+        <url-pattern>/downLoadServlet</url-pattern>
     </servlet-mapping>
 </web-app>

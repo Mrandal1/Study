@@ -12,8 +12,8 @@
     errorPage 表示页面出错后跳转的文件目录
     session 是否创建session
     --%>
-<%@ page import="com.alibaba.druid"
-         autoFlush="true"
+<%--import="com.alibaba.druid"--%>
+<%@ page         autoFlush="true"
          buffer="8kb"
          errorPage="/index.jsp"
          session="true"
